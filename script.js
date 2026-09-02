@@ -1138,6 +1138,40 @@ function displayProducts(list) {
 // ===============================
 function filterProducts(category, button = null) {
 
+    const productGrid =
+        document.getElementById("product-grid");
+
+    const hamperBuilder =
+        document.getElementById("hamper-builder");
+
+    const hamperProductsArea =
+        document.getElementById("hamper-products-area");
+
+    const hamperSelectionBox =
+        document.getElementById("hamper-selection-box");
+
+
+    // SHOW NORMAL PRODUCT GRID
+    if (productGrid) {
+        productGrid.style.display = "";
+    }
+
+
+    // HIDE HAMPER SECTIONS
+    if (hamperBuilder) {
+        hamperBuilder.style.display = "none";
+    }
+
+    if (hamperProductsArea) {
+        hamperProductsArea.style.display = "none";
+    }
+
+    if (hamperSelectionBox) {
+        hamperSelectionBox.style.display = "none";
+    }
+
+
+    // FILTER PRODUCTS
     if (category === "all") {
 
         displayProducts(products);
@@ -1151,7 +1185,8 @@ function filterProducts(category, button = null) {
         displayProducts(filtered);
     }
 
-    // REMOVE ACTIVE STYLE FROM ALL BUTTONS
+
+    // REMOVE ACTIVE STYLE
     const filterButtons =
         document.querySelectorAll(".filter-buttons button");
 
@@ -1161,11 +1196,10 @@ function filterProducts(category, button = null) {
 
 
     // HIGHLIGHT CLICKED BUTTON
-if (button) {
-    button.classList.add("active-filter");
+    if (button) {
+        button.classList.add("active-filter");
+    }
 }
-}
-
 
 // ===============================
 // ADD TO CART
