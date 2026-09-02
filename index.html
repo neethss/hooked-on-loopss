@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hooked on Loops 🧶</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <nav class="navbar">
+
+        <a href="#home" class="logo">
+
+    <img
+        src="images/yarnn.png"
+        alt="Crochet yarn"
+        class="logo-yarn-img"
+    >
+
+    Hooked <span>on Loops</span>
+
+</a>
+        <button
+    class="mobile-menu-button"
+    id="mobile-menu-button"
+    type="button"
+    onclick="toggleMobileMenu()"
+    aria-label="Open menu"
+>
+    ☰
+</button>
+<div class="nav-links" id="nav-links">
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#custom">Custom Orders</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <button class="cart-button" onclick="openCart()">
+            🛒 Cart <span id="cart-count">0</span>
+        </button>
+
+        <button class="wishlist-toggle" onclick="openWishlist()">
+    ♡
+    <span id="wishlist-count">0</span>
+</button>
+
+    </nav>
+</header>
+
+
+<!-- HOME -->
+<section id="home" class="hero">
+
+    <div class="hero-text">
+
+        <p class="small-title">HANDMADE WITH LOVE 🧶</p>
+
+        <h1>
+            Little things<br>
+            made with <span>love.</span>
+        </h1>
+
+        <p>
+            Handmade crochet pieces created stitch by stitch
+            to bring a little more warmth and happiness into your day.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#shop" class="primary-btn">Shop Collection ✨</a>
+            <a href="#custom" class="secondary-btn">Request Custom Order</a>
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+        <div class="yarn-decoration">🧶</div>
+        <div class="hero-card">
+            <span>♡</span>
+            <h3>Made by hand</h3>
+            <p>Made specially for you</p>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+<section class="categories">
+
+    <div class="section-heading">
+        <p>EXPLORE</p>
+        <h2>Shop by category</h2>
+    </div>
+
+    <div class="category-grid">
+
+        <a href="#shop" class="category" onclick="filterProducts('plushies')">
+            <div>🧸</div>
+            <h3>Plushies</h3>
+            <p>Soft little friends</p>
+        </a>
+
+        <a href="#shop" class="category" onclick="filterProducts('keychains')">
+            <div>🔑</div>
+            <h3>Keychains</h3>
+            <p>Cute & tiny</p>
+        </a>
+
+        <a href="#shop" class="category" onclick="filterProducts('flowers')">
+            <div>🌸</div>
+            <h3>Flowers</h3>
+            <p>Flowers that last</p>
+        </a>
+
+        <a href="#shop" class="category" onclick="filterProducts('bags')">
+            <div>👜</div>
+            <h3>Bags</h3>
+            <p>Carry your cuteness</p>
+        </a>
+
+        <a href="#shop" class="category" onclick="filterProducts('accessories')">
+            <div>🎀</div>
+            <h3>Accessories</h3>
+            <p>Little things to love</p>
+        </a>
+
+        <a href="#shop" class="category"  onclick="filterProducts('phone charms')">
+            <div>📱</div>
+            <h3>Phone Charms</h3>
+            <p>Cute for your phone</p>
+        </a>
+
+        <a href="#shop" class="category" onclick="filterProducts('wearables')">
+            <div>🧢</div>
+            <h3>Wearables</h3>
+            <p>Handmade to wear</p>
+        </a>
+
+        <a href="#shop" class="category" onclick="openHamperBuilder()">
+            <div>🎁</div>
+            <h3>Hampers</h3>
+            <p>Made for gifting</p>
+        </a>
+
+        <a href="#shop" class="category" onclick="filterProducts('pet accessories')">
+            <div>🐾</div>
+            <h3>Pet Accessories</h3>
+            <p>For your furry friends</p>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- SHOP -->
+<section id="shop" class="shop">
+
+    <div class="shop-search-wrapper">
+
+    <span class="search-sparkle sparkle-one">✦</span>
+    <span class="search-sparkle sparkle-two">♡</span>
+
+    <div class="shop-search">
+
+        <span class="search-heart">♡</span>
+
+        <input
+            type="text"
+            id="productSearch"
+            placeholder="What are you looking for? ♡"
+            oninput="searchProducts()"
+        >
+
+        <button
+    type="button"
+    class="search-button"
+    aria-label="Search"
+    onclick="searchProducts()"
+>
+    ⌕
+</button>
+         
+</div>
+
+    <p class="search-caption">
+        find your little handmade favourite ♡
+    </p>
+
+</div>
+
+<div class="filter-buttons">
+
+    <button
+        class="active-filter"
+        onclick="filterProducts('all', this)">
+        All
+    </button>
+
+    <button onclick="filterProducts('plushies', this)">
+        Plushies
+    </button>
+
+    <button onclick="filterProducts('keychains', this)">
+        Keychains
+    </button>
+
+    <button onclick="filterProducts('flowers', this)">
+        Flowers
+    </button>
+
+    <button onclick="filterProducts('bags', this)">
+        Bags
+    </button>
+
+    <button onclick="filterProducts('accessories', this)">
+        Accessories
+    </button>
+
+    <button onclick="filterProducts('phone charms', this)">
+        Phone Charms
+    </button>
+
+    <button onclick="filterProducts('wearables', this)">
+        Wearables
+    </button>
+
+    <button onclick="openHamperBuilder()">
+        Hampers
+    </button>
+
+    <button onclick="filterProducts('pet accessories', this)">
+        Pet Accessories
+    </button>
+
+</div>
+
+<div id="product-grid" class="product-grid"></div>
+
+<!-- BUILD YOUR OWN HAMPER -->
+<div id="hamper-builder" class="hamper-builder">
+
+    <div class="hamper-builder-card">
+
+        <span class="hamper-mini-label">
+            BUILD YOUR OWN ♡
+        </span>
+
+        <h2>
+            Create Your Hamper 🧺
+        </h2>
+
+        <p>
+            Pick your favourite handmade pieces
+            and build a hamper made just for you ♡
+        </p>
+
+        <button
+            type="button"
+            onclick="showHamperProducts()"
+            class="hamper-start-button"
+        >
+            Choose Your Items ♡
+        </button>
+
+    </div>
+
+</div>
+
+<!-- YOUR HAMPER -->
+<div id="hamper-selection-box" class="hamper-selection-box">
+
+    <div class="hamper-selection-header">
+        <span>🧺</span>
+
+        <div>
+            <p>YOUR LITTLE BASKET ♡</p>
+            <h3>Your Hamper</h3>
+        </div>
+    </div>
+
+    <div id="hamper-selected-items">
+        <p class="empty-hamper-message">
+            Your hamper is waiting for some handmade cuteness ♡
+        </p>
+    </div>
+
+    <div class="hamper-size-choice">
+
+    <label for="hamper-size">
+        Choose Hamper Size ♡
+    </label>
+
+    <select id="hamper-size" onchange="updateHamperBox()">
+
+        <option value="small" data-charge="50">
+            Small Hamper - ₹50 packing
+        </option>
+
+        <option value="medium" data-charge="80">
+            Medium Hamper - ₹80 packing
+        </option>
+
+        <option value="large" data-charge="120">
+            Large Hamper - ₹120 packing
+        </option>
+
+    </select>
+
+</div>
+
+    <div class="hamper-selection-total">
+        <span>Hamper Total</span>
+
+        <strong>
+            ₹<span id="hamper-total">0</span>
+        </strong>
+    </div>
+
+    <button
+    type="button"
+    class="hamper-order-button"
+    onclick="orderHamperWhatsApp()"
+>
+    Order This Hamper ♡
+</button>
+
+</div>
+
+<!-- HAMPER PRODUCT SELECTION -->
+<div id="hamper-products-area" class="hamper-products-area">
+
+    <div class="hamper-products-heading">
+        <p>PICK YOUR FAVOURITES ♡</p>
+        <h2>Choose Items for Your Hamper</h2>
+    </div>
+
+    <div
+        id="hamper-products-grid"
+        class="hamper-products-grid"
+    ></div>
+
+</div>
+
+        <!-- PRODUCT QUICK VIEW POPUP -->
+
+<div id="product-modal" class="product-modal">
+
+    <div class="product-modal-content">
+
+        <!-- CLOSE BUTTON -->
+        <button
+            class="close-product-modal"
+            onclick="closeProductModal()"
+            aria-label="Close product popup"
+        >
+            ×
+        </button>
+
+
+        <!-- PRODUCT IMAGE -->
+        <div class="product-modal-image">
+
+            <span class="modal-image-heart">♡</span>
+
+            <img
+                id="modal-product-image"
+                src=""
+                alt=""
+            >
+
+        </div>
+
+
+        <!-- PRODUCT INFORMATION -->
+        <div class="product-modal-info">
+
+            <p
+                id="modal-product-category"
+                class="modal-product-category"
+            ></p>
+
+
+            <h2 id="modal-product-name"></h2>
+
+
+            <div class="modal-price-row">
+
+                <div
+                    id="modal-product-price"
+                    class="modal-product-price"
+                ></div>
+
+                <span class="modal-handmade-label">
+                    handmade ♡
+                </span>
+
+            </div>
+
+
+            <p class="modal-product-note">
+                Carefully crocheted by hand,
+                stitch by stitch ♡
+            </p>
+
+
+            <!-- SIZE -->
+            <div
+                id="modal-product-size"
+                class="modal-option-section"
+            ></div>
+
+
+            <!-- CUSTOM COLOUR -->
+            <div
+                id="modal-product-colour"
+                class="modal-option-section"
+            ></div>
+
+
+            <!-- QUANTITY -->
+            <div class="modal-quantity-section">
+
+                <span>Quantity</span>
+
+                <div class="modal-quantity-controls">
+
+                    <button
+                        type="button"
+                        id="modal-quantity-minus"
+                    >
+                        −
+                    </button>
+
+                    <span id="modal-quantity">
+                        1
+                    </span>
+
+                    <button
+                        type="button"
+                        id="modal-quantity-plus"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTION BUTTONS -->
+            <div class="modal-product-actions">
+
+                <button
+                    type="button"
+                    id="modal-wishlist-button"
+                    class="modal-wishlist-button"
+                >
+                    ♡
+                </button>
+
+
+                <button
+                    type="button"
+                    id="modal-add-cart"
+                    class="modal-add-cart-button"
+                >
+                    Add to Cart ♡
+                </button>
+
+            </div>
+
+
+            <p class="modal-little-message">
+                🧶 made with yarn, patience & lots of love
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- CUSTOM ORDER -->
+<section id="custom" class="custom-section">
+
+    <!-- Decorative stickers -->
+    <div class="sticker yarn">🧶</div>
+    <div class="sticker bow">🎀</div>
+    <div class="sticker flower">🌸</div>
+    <div class="sticker teddy">🧸</div>
+    <div class="sticker sparkle">✨</div>
+    <div class="sticker heart">💗</div>
+    <div class="sticker butterfly">🦋</div>
+
+    <div class="custom-content">
+
+        <!-- LEFT SIDE -->
+        <div class="custom-intro">
+
+            <p class="small-title">
+                MADE JUST FOR YOU ✨
+            </p>
+
+            <h2>
+                Dream it.<br>
+                We'll crochet it.
+            </h2>
+
+            <p class="custom-description">
+                Can't find exactly what you're looking for?
+                Tell us your idea and we'll turn it into
+                a handmade crochet creation.
+            </p>
+
+            <div class="custom-points">
+
+                <p>♡ Choose your colour</p>
+
+                <p>♡ Choose your size</p>
+
+                <p>♡ Send us your reference</p>
+
+                <p>♡ Make it completely yours</p>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE FORM -->
+        <form id="custom-form" class="custom-form">
+
+            <h3>
+                Custom Order Request ♡
+            </h3>
+
+
+            <label for="customerName">
+                Your Name
+            </label>
+
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Enter your name"
+                required
+            >
+
+
+            <label for="customerContact">
+                Email / Phone
+            </label>
+
+            <input
+                type="text"
+                id="customerContact"
+                placeholder="Enter your email or phone"
+                required
+            >
+
+
+            <label for="customItem">
+                What would you like?
+            </label>
+
+            <input
+                type="text"
+                id="customItem"
+                placeholder="e.g. Crochet bag, plushie, keychain..."
+                required
+            >
+
+
+            <label for="customColour">
+                Preferred Colour
+            </label>
+
+            <input
+                type="text"
+                id="customColour"
+                placeholder="e.g. Pink, Lavender, Mint green..."
+            >
+
+
+            <label for="customSize">
+                Size / Quantity
+            </label>
+
+            <input
+                type="text"
+                id="customSize"
+                placeholder="e.g. Small, Medium, Large / 2 pieces..."
+            >
+
+
+            <label for="customMessage">
+                Tell us about your idea
+            </label>
+
+            <textarea
+                id="customMessage"
+                rows="4"
+                placeholder="Tell us about the design, colours, style..."
+            ></textarea>
+
+
+            <label for="customReference">
+                Reference Image (Optional)
+            </label>
+
+            <input
+                type="file"
+                id="customReference"
+                accept="image/*"
+            >
+
+
+            <button
+                type="submit"
+                class="primary-btn custom-submit"
+            >
+                Send Request 💌
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="about">
+
+    <div class="about-decoration about-heart">♡</div>
+    <div class="about-decoration about-sparkle">✦</div>
+
+    <div class="about-image">
+
+        <img
+            src="images/about.jpg"
+            alt="Handmade crochet creations"
+        >
+
+        <div class="handmade-badge">
+            <span>♡</span>
+            100% Handmade
+        </div>
+
+    </div>
+
+
+    <div class="about-text">
+
+        <p class="small-title">OUR STORY</p>
+
+        <h2>
+            Made slowly.<br>
+            Made lovingly.
+        </h2>
+
+        <p>
+            Welcome to <strong>Hooked on Loops</strong> — a little
+            corner where yarn, creativity and love come together.
+        </p>
+
+        <p>
+            Every piece is handmade stitch by stitch with patience
+            and care. From tiny keychains and cuddly plushies to bags,
+            accessories and custom creations, each piece is made to
+            feel uniquely yours.
+        </p>
+
+
+        <div class="about-features">
+
+            <div class="about-feature">
+                <span>♡</span>
+
+                <div>
+                    <strong>Made with Love</strong>
+                    <p>Carefully crocheted by hand</p>
+                </div>
+            </div>
+
+
+            <div class="about-feature">
+                <span>✿</span>
+
+                <div>
+                    <strong>Made for You</strong>
+                    <p>Custom colours, sizes & ideas</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <p class="about-thankyou">
+            Thank you for supporting handmade ♡
+        </p>
+
+
+        <a href="#shop" class="about-shop-btn">
+            Explore Our Collection ♡
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+
+    <div class="contact-decoration contact-heart">♡</div>
+    <div class="contact-decoration contact-star">✦</div>
+
+    <div class="section-heading">
+        <p>LET'S TALK</p>
+        <h2>Come say hi! 💌</h2>
+
+        <span class="contact-subtitle">
+            Questions, custom ideas or just want to say hello?
+            We'd love to hear from you ♡
+        </span>
+    </div>
+
+
+    <div class="contact-grid">
+
+        <!-- INSTAGRAM -->
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                📸
+            </div>
+
+            <h3>Instagram</h3>
+
+            <p>@hookedonloops__</p>
+
+            <a
+                href="https://www.instagram.com/hookedonloops__/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Follow us →
+            </a>
+
+        </div>
+
+
+        <!-- WHATSAPP -->
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                💬
+            </div>
+
+            <h3>WhatsApp</h3>
+
+            <p>Message us for orders & enquiries</p>
+
+          <a
+    href="https://wa.me/919945378561"
+    class="contact-whatsapp"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    Chat with us →
+</a>
+        </div>
+
+
+        <!-- EMAIL -->
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                💌
+            </div>
+
+            <h3>Email</h3>
+
+            <p>We're just one message away ♡</p>
+
+            <a
+                href="mailto:hookedonloopss@gmail.com"
+            >
+                Send an email →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="contact-note">
+        🧶 Handmade with love • Made especially for you ♡
+    </div>
+
+</section>
+ 
+ <!-- SHOP INFORMATION -->
+<section class="shop-info-section">
+
+    <div class="section-heading">
+        <p>BEFORE YOU ORDER ♡</p>
+        <h2>Order & Shop Information</h2>
+        <span>
+            A few little things to know before your handmade order reaches you 🧶
+        </span>
+    </div>
+
+    <div class="shop-info-grid">
+
+        <div class="shop-info-card">
+            <div class="shop-info-icon">🧶</div>
+            <h3>Processing Time</h3>
+            <p>
+                Every item is handmade with care.
+                Processing time may vary depending on the product,
+                quantity and customisation requested.
+            </p>
+        </div>
+
+        <div class="shop-info-card">
+            <div class="shop-info-icon">📦</div>
+            <h3>Shipping & Delivery</h3>
+            <p>
+                Delivery charges and estimated delivery time
+                will be confirmed while your order is being
+                finalised through WhatsApp.
+            </p>
+        </div>
+
+        <div class="shop-info-card">
+            <div class="shop-info-icon">💳</div>
+            <h3>Payment</h3>
+            <p>
+                Payment details will be shared after your order
+                and availability are confirmed.
+                Please complete payment only through the details
+                provided by us.
+            </p>
+        </div>
+
+        <div class="shop-info-card">
+            <div class="shop-info-icon">♡</div>
+            <h3>Cancellations & Returns</h3>
+            <p>
+                Since our products are handmade, especially custom
+                orders, cancellations or returns may be limited once
+                work has started. Please contact us if there is an
+                issue with your order.
+            </p>
+        </div>
+
+        <div class="shop-info-card">
+            <div class="shop-info-icon">🔒</div>
+            <h3>Your Privacy</h3>
+            <p>
+                The contact and delivery details you provide are used
+                only for communicating about and fulfilling your order.
+                Please avoid sending unnecessary sensitive information.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+
+    <div class="footer-main">
+
+        <!-- BRAND -->
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+                Hooked on Loops ♡
+            </div>
+
+            <p>
+                Handmade with love, one stitch at a time.
+                Little pieces made to bring a little more
+                happiness into your day ♡
+            </p>
+
+            <a
+                href="https://www.instagram.com/hookedonloops__/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-instagram"
+            >
+                📸 @hookedonloops__
+            </a>
+
+        </div>
+
+
+        <!-- QUICK LINKS -->
+        <div class="footer-column">
+
+            <h3>Explore</h3>
+
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#custom">Custom Orders</a>
+            <a href="#about">Our Story</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+
+
+        <!-- SHOP -->
+        <div class="footer-column">
+
+    <h3>Shop ♡</h3>
+
+    <a href="#shop" onclick="filterProducts('plushies')">
+        Plushies
+    </a>
+
+    <a href="#shop" onclick="filterProducts('keychains')">
+        Keychains
+    </a>
+
+    <a href="#shop" onclick="filterProducts('bags')">
+        Bags
+    </a>
+
+    <a href="#shop" onclick="filterProducts('flowers')">
+        Flowers
+    </a>
+
+    <a href="#shop" onclick="filterProducts('wearables')">
+        Wearables
+    </a>
+
+</div>
+
+        <!-- MESSAGE -->
+        <div class="footer-message">
+
+            <div class="footer-heart">♡</div>
+
+            <h3>Made especially for you</h3>
+
+            <p>
+                Have something special in mind?
+                We'd love to crochet your idea.
+            </p>
+
+            <a href="#custom">
+                Create Something Special →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-divider"></div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Hooked on Loops
+        </p>
+
+        <p>
+            Made with 🧶 + ♡
+        </p>
+
+    </div>
+
+</footer>
+ 
+ 
+<!-- CART POPUP --> 
+<div id="cart-overlay" class="cart-overlay"> 
+ 
+    <div class="cart"> 
+ 
+        <button class="close-cart" onclick="closeCart()">×</button> 
+ 
+        <h2>Your Cart 🛒</h2> 
+ 
+        <div id="cart-items"></div> 
+ 
+        <div class="cart-bottom"> 
+ 
+            <div class="cart-total"> 
+                Total: 
+                <strong>₹<span id="cart-total">0</span></strong> 
+            </div> 
+ 
+            <button onclick="checkout()" class="primary-btn"> 
+                Place Order 💌 
+            </button> 
+ 
+        </div> 
+ 
+    </div> 
+ 
+</div> 
+ 
+<!-- CHECKOUT DETAILS POPUP -->
+<div id="checkout-overlay" class="checkout-overlay">
+
+    <div class="checkout-box">
+
+        <button
+            type="button"
+            class="close-checkout"
+            onclick="closeCheckout()"
+        >
+            ×
+        </button>
+
+        <div class="checkout-heading">
+
+            <span class="checkout-heart">♡</span>
+
+            <p>ALMOST YOURS 🧶</p>
+
+            <h2>Delivery Details</h2>
+
+            <span>
+                Tell us where your handmade goodies
+                should find you ♡
+            </span>
+
+        </div>
+
+
+        <div class="checkout-form">
+
+            <label for="checkout-name">
+                Your Name *
+            </label>
+
+            <input
+                type="text"
+                id="checkout-name"
+                placeholder="Enter your name"
+                required
+            >
+
+
+            <label for="checkout-phone">
+                Phone Number *
+            </label>
+
+            <input
+                type="tel"
+                id="checkout-phone"
+                placeholder="Enter your phone number"
+                required
+            >
+
+
+            <label for="checkout-address">
+                Delivery Address *
+            </label>
+
+            <textarea
+                id="checkout-address"
+                rows="3"
+                placeholder="House name, street, area..."
+                required
+            ></textarea>
+
+
+            <label for="checkout-city">
+                City / Place *
+            </label>
+
+            <input
+                type="text"
+                id="checkout-city"
+                placeholder="Enter your city or place"
+                required
+            >
+
+
+            <label for="checkout-pincode">
+                Pincode *
+            </label>
+
+            <input
+                type="text"
+                id="checkout-pincode"
+                placeholder="Enter your pincode"
+                maxlength="6"
+                required
+            >
+
+
+            <label for="checkout-note">
+                Order Note
+                <span>(optional)</span>
+            </label>
+
+            <textarea
+                id="checkout-note"
+                rows="2"
+                placeholder="Anything you'd like us to know? ♡"
+            ></textarea>
+
+
+            <div class="checkout-order-total">
+
+    <span>Order Total</span>
+
+    <strong>
+        ₹<span id="checkout-total">0</span>
+    </strong>
+
+</div>
+<button
+                type="button"
+                class="checkout-whatsapp-btn"
+                onclick="sendWhatsAppOrder()"
+            >
+                Continue to WhatsApp 💌
+            </button>
+
+
+            <p class="checkout-safe-note">
+                ♡ Your order will be confirmed through WhatsApp
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CUTE ADDED TO CART TOAST -->
+<div id="cart-toast" class="cart-toast">
+
+    <div class="cart-toast-icon">♡</div>
+
+    <div class="cart-toast-text">
+        <strong>Added to cart ♡</strong>
+        <span>Something cute is waiting for you!</span>
+    </div>
+
+</div>
+
+<!-- WISHLIST POPUP -->
+<div id="wishlist-overlay" class="wishlist-overlay">
+
+    <div class="wishlist-box">
+
+        <button
+            class="close-wishlist"
+            onclick="closeWishlist()"
+            aria-label="Close wishlist"
+        >
+            ×
+        </button>
+
+        <h2>Your Favourites ♡</h2>
+
+        <div id="wishlist-items"></div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script> 
+ 
+</body> 
+</html>             
